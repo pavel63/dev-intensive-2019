@@ -9,8 +9,8 @@ fun User .toUserView() : UserView {
     /**returns in translite*/
    // val nickname = Utils.transliteration("$firstName $lastName)
     /**return initials*/
-    val initials = Utils.initials(firstName ,lastName)
-    val status = if(lastVisit == null) "Еще ни разу не был" else if(isOnline ) "online" else  "Последнний раз был${lastVisit .humanizeDiff(lastVisit)}"
+    val initials = Utils.toInitials(firstName ,lastName)
+    val status = if(lastVisit == null) "Еще ни разу не был" else if(isOnline ) "online" else  "Последнний раз был${lastVisit .humanizeDiff()}"
 
 return UserView(
     id,

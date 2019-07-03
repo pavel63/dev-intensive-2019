@@ -39,8 +39,8 @@ enum class TimeUnits {
 
 
 
-fun Date.humanizeDiff(timeWas: Date): String {
-    val timeDiff = this.time.minus(timeWas.time)
+fun Date.humanizeDiff(): String {
+    val timeDiff = Date().time -this.time
 
     return when (timeDiff) {
         in 0..999 -> "только что"
@@ -51,21 +51,21 @@ fun Date.humanizeDiff(timeWas: Date): String {
 
         in 75_000..2_699_999 -> {
             val strNumb = timeDiff / 60_000
-            "$strNumb + ${(Utils .numbersDeclination(strNumb.toString(), "minutes"))} назад"
+            "$strNumb ${(Utils .numbersDeclination(strNumb.toString(), "minutes"))} назад"
         }
 
         in 2_700_000..4_499_999 -> "час назад"
 
         in 4_500_000..79_199_999 -> {
             val strNumb = timeDiff / 3_600_000
-            "$strNumb + ${(Utils .numbersDeclination(strNumb.toString(), "hours"))} назад"
+            "$strNumb ${(Utils .numbersDeclination(strNumb.toString(), "hours"))} назад"
         }
 
         in 79_200_000..92_599_999 -> "день назад"
 
         in 592_600_000..31_103_999_999 -> {
             val strNumb = timeDiff / 86_000_000
-            "$strNumb + ${(Utils .numbersDeclination(strNumb.toString(), "days"))} назад"
+            "$strNumb ${(Utils .numbersDeclination(strNumb.toString(), "days"))} назад"
         }
 
         in 31_104_000_000..Long.MAX_VALUE -> "более года назад"

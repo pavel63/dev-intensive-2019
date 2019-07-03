@@ -147,7 +147,7 @@ object Utils {
 
 
 
-    fun initials(firstName: String?, lastName: String?): String {
+    fun toInitials(firstName: String?, lastName: String?): String {
 
         var firstInitial = firstName?. take(1) ?.toUpperCase()
         var lastInitial = lastName?.take(1) ?.toUpperCase()
