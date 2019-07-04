@@ -155,7 +155,7 @@ object Utils {
         if(firstInitial.isNullOrBlank()) firstInitial = null
         if(lastInitial.isNullOrEmpty()) lastInitial = null
 
-        return "$firstInitial $lastInitial"
+        return "$firstInitial$lastInitial"
     }
 
 

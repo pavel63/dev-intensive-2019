@@ -7,7 +7,7 @@ import java.util.*
     var from: User?,
     var chat: Chat,
     val isIncoming : Boolean = false,
-    val date: Date = Date()
+    val date: Date
 ){
    abstract fun formatMessage():String
 
@@ -15,11 +15,11 @@ import java.util.*
 
        var lastId = -1
 
-       fun makeMessage(from: User?, chat: Chat, date: Date=Date(),type:String="text", payload : Any, isIncoming :Boolean =false) : BaseMessage{
+       fun makeMessage(from: User, chat: Chat, date: Date,type:String="text", payload : Any, isIncoming :Boolean =false) : BaseMessage{
           lastId++
           return when(type){
-             "image"->ImageMessage("$lastId", from ,chat ,false, date=date, image=payload as String)
-             else ->TextMessage("$lastId", from ,chat ,false, date=date, text=payload as String)
+             "image"->ImageMessage("$lastId", from ,chat ,isIncoming, date=date, image=payload as String)
+             else ->TextMessage("$lastId", from ,chat ,isIncoming, date=date, text=payload as String)
           }
        }
 
