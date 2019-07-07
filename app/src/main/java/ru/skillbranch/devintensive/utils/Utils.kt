@@ -147,15 +147,16 @@ object Utils {
 
 
 
-    fun toInitials(firstName: String?, lastName: String?): String {
+    fun toInitials(firstName: String?, lastName: String?): String? {
 
-        var firstInitial = firstName?. take(1) ?.toUpperCase()
-        var lastInitial = lastName?.take(1) ?.toUpperCase()
+        val firstInitial = firstName?. take(1) ?.toUpperCase() ?:""
+        val lastInitial = lastName?.take(1) ?.toUpperCase() ?:""
 
-        if(firstInitial.isNullOrBlank()) firstInitial = null
-        if(lastInitial.isNullOrEmpty()) lastInitial = null
+        if(firstName.isNullOrBlank()&&(lastName.isNullOrBlank())){
+         return null
+        }
 
-        return "$firstInitial$lastInitial"
+        return firstInitial+lastInitial
     }
 
 
@@ -173,7 +174,7 @@ object Utils {
            "seconds"->
                when(myDig){
                    in 2..4 -> "секунды"
-                   1 -> "секунду"
+                   1 -> "секунда"
                    else -> "секунд"
                }
 
