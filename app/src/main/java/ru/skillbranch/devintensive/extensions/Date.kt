@@ -34,15 +34,32 @@ enum class TimeUnits {
     SECOND,
     MINUTE,
     HOUR,
-    DAY
+    DAY;
+
+    fun plural(int: Int): String {
+        return when (this) {
+            SECOND -> {
+                return "$int ${Utils.numbersDeclination(int.toString(), "seconds")}"
+            }
+            MINUTE -> {
+                return "$int ${Utils.numbersDeclination(int.toString(), "minutes")}"
+            }
+            HOUR -> {
+                return "$int ${Utils.numbersDeclination(int.toString(), "hours")}"
+            }
+            DAY -> {
+                return "$int ${Utils.numbersDeclination(int.toString(), "days")}"
+            }
+        }
+    }
 }
 
 
 
 fun Date.humanizeDiff(): String {
-    var timeDiff = Date().time -this.time
+    var timeDiff = Date().time - this.time
 
-    if(timeDiff>0) {
+    if (timeDiff > 0) {
 
         return when (timeDiff) {
             in 0..999 -> "только что"
@@ -77,7 +94,7 @@ fun Date.humanizeDiff(): String {
 
     } else {
 
-      timeDiff*=-1
+        timeDiff *= -1
 
         return when (timeDiff) {
             in 0..999 -> "только что"
@@ -105,7 +122,7 @@ fun Date.humanizeDiff(): String {
                 "через $strNumb ${(Utils.numbersDeclination(strNumb.toString(), "days"))}"
             }
 
-             in 31_104_000_000..Long.MAX_VALUE -> "более чем через год"
+            in 31_104_000_000..Long.MAX_VALUE -> "более чем через год"
 
             else -> ""
         }

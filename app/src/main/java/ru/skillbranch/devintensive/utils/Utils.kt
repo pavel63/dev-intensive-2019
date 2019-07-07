@@ -169,6 +169,14 @@ object Utils {
         }
 
        return when (term) {
+
+           "seconds"->
+               when(myDig){
+                   in 2..4 -> "секунды"
+                   1 -> "секунду"
+                   else -> "секунд"
+               }
+
             "minutes" ->
                 when (myDig) {
                     in 2..4 -> "минуты"
