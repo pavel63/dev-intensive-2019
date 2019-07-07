@@ -174,7 +174,7 @@ object Utils {
            "seconds"->
                when(myDig){
                    in 2..4 -> "секунды"
-                   1 -> "секунда"
+                   1 -> "секунду"
                    else -> "секунд"
                }
 
@@ -203,6 +203,54 @@ object Utils {
         }
 
     }
+
+
+
+
+
+    fun numbersDeclinationPlur(number: String, term: String) :String {
+        var myDig = 0
+
+        number .toCharArray() .apply {
+            myDig = get(size-1).toString() .toInt()
+        }
+
+        return when (term) {
+
+            "seconds"->
+                when(myDig){
+                    1 -> "секунду"
+                    in 2..4 -> "секунды"
+                    else -> "секунд"
+                }
+
+            "minutes" ->
+                when (myDig) {
+                    1 -> "минуту"
+                    in 2..4 -> "минуты"
+                    else -> "минут"
+                }
+
+            "hours" ->
+                when (myDig) {
+                    1 -> "час"
+                    in 2..4 -> "часа"
+                    else -> "часов"
+                }
+
+            "days" ->
+                when (myDig) {
+                    1 -> "день"
+                    in 2..4 -> "дня"
+                    else -> "дней"
+                }
+
+            else -> ""
+        }
+
+    }
+
+
 
 
 }

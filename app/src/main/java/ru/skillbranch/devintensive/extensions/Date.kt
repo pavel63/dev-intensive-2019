@@ -39,16 +39,16 @@ enum class TimeUnits {
     fun plural(int: Int): String {
         return when (this) {
             SECOND -> {
-                return "$int ${Utils.numbersDeclination(int.toString(), "seconds")}"
+                return "$int ${Utils.numbersDeclinationPlur(int.toString(), "seconds")}"
             }
             MINUTE -> {
-                return "$int ${Utils.numbersDeclination(int.toString(), "minutes")}"
+                return "$int ${Utils.numbersDeclinationPlur(int.toString(), "minutes")}"
             }
             HOUR -> {
-                return "$int ${Utils.numbersDeclination(int.toString(), "hours")}"
+                return "$int ${Utils.numbersDeclinationPlur(int.toString(), "hours")}"
             }
             DAY -> {
-                return "$int ${Utils.numbersDeclination(int.toString(), "days")}"
+                return "$int ${Utils.numbersDeclinationPlur(int.toString(), "days")}"
             }
         }
     }
