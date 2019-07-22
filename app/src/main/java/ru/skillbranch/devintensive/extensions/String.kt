@@ -1,5 +1,6 @@
 package ru.skillbranch.devintensive.extensions
 
+import android.text.Editable
 import android.text.Html
 
 
@@ -41,4 +42,11 @@ fun removeTags(`in`: String): String {
         }
     }
     return `in`
+}
+
+
+
+
+fun String.toEditable(): Editable{
+    return Editable.Factory.getInstance().newEditable(this)
 }

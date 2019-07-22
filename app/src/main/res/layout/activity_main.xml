@@ -43,6 +43,7 @@
                   android:layout_height="wrap_content"/>
 
         <ImageView
+                android:id="@+id/ivSend"
                 android:contentDescription="@string/send"
                 android:layout_gravity="end|center_vertical"
                 android:background="@drawable/ic_send_white_24dp"
